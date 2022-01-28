@@ -1,0 +1,1 @@
+Aquí se guardan los comprobantes generados en formato PDF

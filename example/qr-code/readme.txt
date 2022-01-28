@@ -1,0 +1,1 @@
+Aquí se guardan los QR generados en formato PNG

@@ -1,0 +1,5 @@
+vendor/
+example/config.php
+example/index.php
+example/certificados/produccion/
+README_.md
