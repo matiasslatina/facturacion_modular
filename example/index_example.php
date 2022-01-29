@@ -122,7 +122,11 @@ $operacionData_CreditoB=[
 use Msl\FacturacionModular\Comprobante;
 
 $comprobante=new Comprobante($operacionData_CreditoB);
-$comprobante->solicitarAutorizacionAfip();
+try {
+    $datos_afip=$comprobante->solicitarAutorizacionAfip();
+} catch (Exception $ex) {
+    $ex->getMessage();
+}
 $comprobante->generarQR();
 $pdf_name=$comprobante->construirPDF();
 ?>

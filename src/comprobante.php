@@ -75,8 +75,9 @@ class Comprobante
         try{
             $afip = new \Afip($this->afipData);
         }catch(Exception $ex){
-            die("Ha ocurrido el siguiente error al intentar generar el objeto Afip: ".$ex->getMessage());
-        }        
+            $error="Ha ocurrido el siguiente error al intentar generar el objeto Afip: ".$ex->getMessage();
+            throw new Exception($error,1);
+        }     
 
         $punto_de_venta = EMPRESA_PTO_VTA;
 
@@ -88,8 +89,9 @@ class Comprobante
         try {
             $last_voucher = $afip->ElectronicBilling->GetLastVoucher($punto_de_venta, $tipo_de_factura);
         }catch(Exception $ex){
-            die("Ha ocurrido el siguiente error al intentar obtener el último comprobante: ".$ex->getMessage());
-        } 
+            $error="Ha ocurrido el siguiente error al intentar obtener el último comprobante: ".$ex->getMessage();
+            throw new Exception($error,2);
+        }
 
         /**
          * Concepto de la factura
@@ -209,8 +211,9 @@ class Comprobante
         try {
             $res = $afip->ElectronicBilling->CreateVoucher($data);
         } catch (Exception $ex) {
-            die("Ha ocurrido el siguiente error al intentar obtener el CAE: ".$ex->getMessage());
-        }        
+            $error="Ha ocurrido el siguiente error al intentar obtener el CAE: ".$ex->getMessage();
+            throw new Exception($error,2);
+        }       
 
         $this->facturaData=[
             'cae'           => $res['CAE'],
