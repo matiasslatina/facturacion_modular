@@ -285,10 +285,7 @@ class Comprobante
         $dest="comprobantes/".$pdf_name;
                 
         $pdf->Output($dest, 'F');
-        //copy('factura.pdf', 'facturas/factura.pdf');
-        ?>
-        <embed style="height: 100vh;" width='100%' name='plugin' src='<?=$dest?>' type='application/pdf' style="border:medium" />
-        <?php
+        
         return $pdf_name;
     }
 

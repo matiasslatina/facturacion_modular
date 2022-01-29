@@ -125,3 +125,5 @@ $comprobante=new Comprobante($operacionData_CreditoB);
 $comprobante->solicitarAutorizacionAfip();
 $comprobante->generarQR();
 $pdf_name=$comprobante->construirPDF();
+?>
+<embed style="height: 100vh;" width='100%' name='plugin' src='comprobantes/<?=$pdf_name?>' type='application/pdf' style="border:medium" />

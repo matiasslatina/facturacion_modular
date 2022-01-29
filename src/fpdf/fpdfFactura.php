@@ -75,7 +75,7 @@ class FpdfFactura extends  \FPDF
         $this->Cell(95,6,"     RAZON SOCIAL: ".RAZON_SOCIAL,'LR',0,'L');        
         $this->Cell(0,6,"      FECHA EMICION: ".date("d/m/Y"),"R",1,'L');
 
-        $this->Cell(95,6,"     DOMICILIO COMERCIAL: ".utf8_encode(EMPRESA_DOMICILIO),'LR',0,'L');        
+        $this->Cell(95,6,"     DOMICILIO COMERCIAL: ".utf8_decode(EMPRESA_DOMICILIO),'LR',0,'L');        
         $this->Cell(0,6,"      CUIT: ".EMPRESA_CUIT,"R",1,'L');
        
         $this->Cell(95,6,"     CONDICION FRENTE AL IVA: ".EMPRESA_COND_IVA,'LR',0,'L');
