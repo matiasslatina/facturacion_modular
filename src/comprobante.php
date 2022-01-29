@@ -70,7 +70,7 @@ class Comprobante
         $this->operacionData['total']=number_format($neto_grabado+$importe_iva,2,'.','');
     } 
 
-    public function solicitarAutorizacionAfip()
+    public function solicitarAutorizacionAfip() :array
     {
         try{
             $afip = new \Afip($this->afipData);
@@ -217,9 +217,11 @@ class Comprobante
             'vto_cae'       => $res['CAEFchVto'],
             'numero'        => $numero_de_factura,
         ];
+
+        return $this->facturaData;
     }
 
-    public function generarQR()
+    public function generarQR() :void
     {
         $qr=new CodigoQR();
         $datos_cmp_base_64 = json_encode([
