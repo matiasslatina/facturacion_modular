@@ -95,7 +95,13 @@ class FpdfFactura extends  \FPDF
         $this->Cell(75,6,"     CONDICION FRENTE AL IVA: ".$this->clienteData['condicion'],'L',0,'L');        
         $this->Cell(0,6,"      DOMICILIO COMERCIAL: ".utf8_decode($this->clienteData['direccion']." ".$this->clienteData['localidad']),"R",1,'L');
 
-        $this->Cell(0,6,"     CONDICION DE VENTA: ".$this->operacionData['condicion_de_venta'],'LBR',1,'L');
+        if($this->operacionData['tipo']=='1'){
+            $this->Cell(0,6,"     CONDICION DE VENTA: ".$this->operacionData['condicion_de_venta'],'LBR',1,'L');
+        }
+        if($this->operacionData['tipo']=='3'){
+            $this->Cell(75,6,"     CONDICION DE VENTA: ".$this->operacionData['condicion_de_venta'],'LB',0,'L');
+            $this->Cell(0,6,"     FACTURA: ".$this->add_ceros(EMPRESA_PTO_VTA,5)."-".$this->add_ceros($this->operacionData['cbtesAsoc'][0]['Nro'],8),'BR',1,'L');
+        }
 
         $this->Ln('1');
 
